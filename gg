@@ -1,15 +1,11 @@
-#!/usr/bin/env bash
-
-if [ -z $1 ]; then
-  sudo shutdown -r now
-
-elif [ "$1" = "--help" ]; then
-  echo "'gg' restarts the system. Use 'gg no re' to halt the system instead."
-
-elif [ "$1" = "nore" ] || [ "$1" = "no" ] && [ "$2" = "re" ]; then
-  sudo shutdown -h now
-
-else
-  echo "yeah $@ gg"
-  return 0
-fi
+#!/bin/sh
+case $* in
+    "--help")
+        echo "'gg' restarts the system. Use 'gg no re' to halt the system instead.";;
+    "")
+        sudo systemctl reboot;;
+    "nore"|"no re")
+        sudo systemctl poweroff;;
+    *)
+        echo "yeah $* gg";;
+esac
