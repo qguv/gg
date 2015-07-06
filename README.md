@@ -1,4 +1,5 @@
 # gg
+
 shuts down the system in anger
 
 ## usage
@@ -8,4 +9,6 @@ shuts down the system in anger
 
 ## installation
 
-  - put the `gg` file somewhere executable
+put the `gg` file somewhere executable or use:
+
+    install -Dm755 gg /usr/bin/gg
